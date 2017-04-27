@@ -1,13 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body{
-    font-family: Courier;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1{
-    font-family: Convergence;
+    font-size: 1.5em;
     padding: 0;
-    margin: 0;
-    margin-bottom: 0.3em;
+    margin: 0 0 0.2em 0;
 }
 
 input{
@@ -18,9 +18,10 @@ input{
 
 form{
     background-color: #F5F3EE;
-    padding:0.8em;
-    margin:1em;
+    padding:1.2em 1.5em;
+    margin:2em auto;
     border-style: ridge;
+    max-width: 41em;
 }
 
 table {
@@ -42,6 +43,7 @@ th{
 input[type=submit]{
     width:100%;
     margin: 0.5em 0 0 0;
+    padding: 0.3em;
 }
 
 input[type=text]{
