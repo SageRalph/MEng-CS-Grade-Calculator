@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>MEng Computer Science grade calculator</title>
+        <h:outputStylesheet library="css" name="calculator.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>Grades</h1>
+            <table>
+                <tr>
+                    <td><h:outputLabel value="Second year grades: "/></td>
+                    <c:forEach items="#{gradesBean.y2Grades}" varStatus="loop">
+                        <td>
+                            <h:inputText value="#{gradesBean.y2Grades[loop.index]}" required="true" requiredMessage="All values must be specified">
+                                <f:converter  converterId ="javax.faces.Integer"/>
+                            </h:inputText>
+                        </td>
+                    </c:forEach>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="Third year grades: "/></td>
+                    <c:forEach items="#{gradesBean.y3Grades}" varStatus="loop">
+                        <td>
+                            <h:inputText value="#{gradesBean.y3Grades[loop.index]}" required="true" requiredMessage="All values must be specified">
+                                <f:converter  converterId ="javax.faces.Integer"/>
+                            </h:inputText>
+                        </td>
+                    </c:forEach>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="Fourth year grades: "/></td>
+                    <c:forEach items="#{gradesBean.y4Grades}" varStatus="loop">
+                        <td>
+                            <h:inputText value="#{gradesBean.y4Grades[loop.index]}" required="true" requiredMessage="All values must be specified">
+                                <f:converter  converterId ="javax.faces.Integer"/>
+                            </h:inputText>
+                        </td>
+                    </c:forEach>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="Dissertation grade: "/></td>
+                    <td>
+                        <h:inputText value="#{gradesBean.projectGrade}" required="true" requiredMessage="All values must be specified">
+                            <f:converter  converterId ="javax.faces.Integer"/>
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h:commandButton action="#{gradesBean.calc}" value="Calculate"/></td>
+                </tr>
+            </table>
+        </h:form>
+        <h:form>
+            <h1>Results</h1>
+            <section>
+                <h:outputLabel value="Grade for year 2 is: "/>
+                <h:outputText value="#{gradesBean.y2Ave}"/>
+            </section>
+            <section>
+                <h:outputLabel value="Grade for year 3 is: "/>
+                <h:outputText value="#{gradesBean.y3Ave}"/>
+            </section>
+            <section>
+                <h:outputLabel value="Grade for year 4 is: "/>
+                <h:outputText value="#{gradesBean.y4Ave}"/>
+            </section>
+            <section>
+                <h:outputLabel value="Grade for method 1 (20:40:40) is: "/>
+                <h:outputText value="#{gradesBean.method1}"/>
+            </section>
+            <section>
+                <h:outputLabel value="Grade for method 2 (00:50:50) is: "/>
+                <h:outputText value="#{gradesBean.method2}"/>
+            </section>
+            <section>
+                <h:outputLabel value="Awarded degree classification is: "/>
+                <h:outputText value="#{gradesBean.award}"/>
+            </section>
+        </h:form>
+    </h:body>
+</html>
